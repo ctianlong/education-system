@@ -4,11 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>登陆成功</title>
 </head>
 <body>
-欢迎：${currentUser.userName }
-<br><br>
-<input type="button" value="退出" onclick="window.location.href='${pageContext.request.contextPath }/user/logout.do'" />
+	<center>
+	<h2>欢迎：${currentUser.userName }</h2>
+	<input type="button" value="课程信息查询" onclick="window.location.href='${pageContext.request.contextPath }/lesson.jsp'" />
+	<br/><br/>
+	<input type="button" value="退出" onclick="window.location.href='${pageContext.request.contextPath }/user/logout'" />
+	</center>
 </body>
 </html>

@@ -18,6 +18,11 @@ import org.hibernate.annotations.DynamicUpdate;
 @DynamicUpdate(true) //只更新我们修改过的字段，这两个注解在一定程度上可以增加与数据库操作相关的速度，可以节省SQL语句的执行时间，提高程序的运行效率。
 public class User implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@Column(name="ID")
 	@GeneratedValue(strategy=GenerationType.AUTO)

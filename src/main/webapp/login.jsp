@@ -4,13 +4,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>登陆页面</title>
 </head>
 <body>
-<form action="${pageContext.request.contextPath }/user/login.do" method="post">
-	userName:<input type="text" name="userName" value="${user.userName }"/><br/>
-	password:<input type="password" name="password" value="${user.password }"><br/>
-	<input type="submit" value="login"/><font color="red">${errorMsg }</font>
+<form action="${pageContext.request.contextPath }/user/login" method="post">
+	<table align="center" cellpadding="10" cellspacing="0">
+		<tr>
+			<td>用户名:</td>
+			<td><input type="text" name="userName" value="${user.userName }"/></td>
+		</tr>
+		<tr>
+			<td>密码:</td>
+			<td><input type="password" name="password" value="${user.password }"></td>
+		</tr>
+		<tr>
+			<td><input type="submit" value="登陆"/></td>
+			<td><font color="red">${errorMsg }</font></td>
+		</tr>
+	</table>
 </form>
 </body>
 </html>
