@@ -28,8 +28,8 @@ public class LessonController {
 			model.addAttribute("errorMsg", "课程名不能为空！");
 		}else{
 			name= name.trim();
-			List<Lesson> result = lessonService.getLessonByName(name);
 			logger.info("查询课程信息名称：" + name);
+			List<Lesson> result = lessonService.getLessonByName(name);
 			if(result == null)
 				model.addAttribute("errorMsg", "没有相关课程信息");
 			else

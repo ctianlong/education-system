@@ -44,7 +44,7 @@ public class UserController {
 			HttpSession session = request.getSession();
 			session.setAttribute("currentUser", resultUser);
 			logger.info("登录成功：" + resultUser.getUserName());
-			return "redirect:/success.jsp";
+			return "redirect:/jsp/success.jsp";
 		}
 	}
 	

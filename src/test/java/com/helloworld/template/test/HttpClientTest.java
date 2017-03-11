@@ -297,4 +297,47 @@ public class HttpClientTest {
             }  
         }  
     }  
+    
+    
+    @Test
+    public void postHttps(){
+    	// 创建默认的httpClient实例.    
+        CloseableHttpClient httpclient = HttpClients.createDefault();  
+        // 创建httppost    
+        HttpPost httppost = new HttpPost("https://e6643e30271042f1aac8619116111640-vp0.us.blockchain.ibm.com:5003/registrar");  
+        try {  
+        	// 创建参数    
+        	String jsonStr = "{\"enrollId\": \"admin\",\"enrollSecret\": \"56d4a82f3d\"}";
+        	StringEntity stringEntity = new StringEntity(jsonStr, ContentType.create("application/json", "UTF-8"));
+            httppost.setEntity(stringEntity); 
+        	
+            System.out.println("executing request: " + httppost.getURI());  
+            CloseableHttpResponse response = httpclient.execute(httppost);  
+            try {  
+                HttpEntity entity = response.getEntity();  
+                if (entity != null) {  
+                    System.out.println("--------------------------------------");  
+                    System.out.println("Response content: " + EntityUtils.toString(entity, "UTF-8"));  
+                    System.out.println("--------------------------------------");  
+                }  
+            } finally {  
+                response.close();  
+            }  
+        } catch (ClientProtocolException e) {  
+            e.printStackTrace();  
+        } catch (UnsupportedEncodingException e1) {  
+            e1.printStackTrace();  
+        } catch (IOException e) {  
+            e.printStackTrace();  
+        } finally {  
+            // 关闭连接,释放资源    
+            try {  
+                httpclient.close();  
+            } catch (IOException e) {  
+                e.printStackTrace();  
+            }  
+        }
+    }
+    
+    
 }
